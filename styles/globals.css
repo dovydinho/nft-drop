@@ -1,26 +1,15 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  /* @apply bg-gradient-to-r from-gray-900 to-gray-800 text-gray-50 min-h-screen; */
+  @apply bg-gradient-to-r from-[#920b7e] to-[#341d31] text-gray-50 min-h-screen;
+  font-family: 'Montserrat', sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.nft-collections::-webkit-scrollbar-track {
+  margin-right: 240px;
 }

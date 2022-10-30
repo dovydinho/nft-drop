@@ -1,8 +1,13 @@
+import { urlFor } from '@base/sanity';
+import { Collection } from '@base/typings';
 import Image from 'next/image';
-import Link from 'next/link';
 import Navbar from '../navbar';
 
-const Hero = () => {
+interface Props {
+  collection: Collection;
+}
+
+const Hero = ({ collection }: Props) => {
   return (
     <>
       <div className="relative lg:h-screen flex flex-col lg:flex-row">
@@ -10,7 +15,7 @@ const Hero = () => {
           <div className="flex items-center justify-end h-full relative p-24">
             <div className="flex bg-gray-50 p-2 rounded-2xl bg-gradient-to-br from-violet-700/50 to-indigo-900/90 relative">
               <Image
-                src="https://stashh.mypinata.cloud/ipfs/bafybeib3ilpc3llxotwuuswczgd3r2yn5pp27pqmhqrjzx2hgrddmg2awu/807ae21462.jpeg"
+                src={urlFor(collection.mainImage).url()}
                 width={400}
                 height={400}
                 className="rounded-xl object-contain"
@@ -38,7 +43,7 @@ const Hero = () => {
               </div>
             </div>
             <Image
-              src="https://images.pexels.com/photos/949587/pexels-photo-949587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src={urlFor(collection.backgroundImage).url()}
               layout="fill"
               className="object-cover -z-10"
             />
@@ -51,7 +56,7 @@ const Hero = () => {
               <div className="flex items-center justify-center h-full relative pb-20">
                 <div className="flex p-2 rounded-2xl bg-gradient-to-br from-violet-700/50 to-indigo-900/90 relative">
                   <Image
-                    src="https://stashh.mypinata.cloud/ipfs/bafybeib3ilpc3llxotwuuswczgd3r2yn5pp27pqmhqrjzx2hgrddmg2awu/807ae21462.jpeg"
+                    src={urlFor(collection.mainImage).url()}
                     width={400}
                     height={400}
                     className="rounded-xl object-contain"
@@ -82,15 +87,13 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl">Monster NFT</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl">
+              {collection.title}
+            </h1>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#FF5F6D]">
               Collection
             </h1>
-            <p className="my-6 text-gray-500">
-              Lorem ipsum is placeholder text commonly used in the graphic,
-              print, and publishing industries for previewing layouts and visual
-              mockups.
-            </p>
+            <p className="my-6 text-gray-500">{collection.description}</p>
             <div className="flex mt-12 items-center justify-center">
               <div className="flex flex-col sm:flex-row w-full text-gray-700">
                 <div className="flex sm:w-2/3">
@@ -110,8 +113,12 @@ const Hero = () => {
                   </div>
                 </div>
                 <div className="relative overflow-hidden w-full sm:w-1/3 flex flex-col font-bold items-center justify-center shadow-lg text-gray-100">
-                  <button className="w-full h-full py-4 tracking-widest uppercase hover:bg-blue-500 bg-blue-600 border border-gray-600 rounded-b-xl sm:rounded-bl-none sm:rounded-r-xl">
-                    Mint
+                  <button className="w-full h-full flex flex-col font-bold items-center justify-center hover:bg-blue-500 bg-blue-600 border border-gray-600 rounded-b-xl sm:rounded-bl-none sm:rounded-r-xl">
+                    {/* <svg className="animate-spin rounded-full border-t-transparent border-4 h-5 w-5 mr-3" /> */}
+                    <span className="tracking-widest uppercase text-2xl">
+                      Mint
+                    </span>
+                    <span className="text-sm sm:text-base">0.01 ETH</span>
                   </button>
                 </div>
               </div>

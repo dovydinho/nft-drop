@@ -1,14 +1,20 @@
+import { sanityClient } from '@base/sanity';
+import { Collection } from '@base/typings';
 import { Hero } from '@components/ui';
+import { GetServerSideProps, NextPage } from 'next';
 import React from 'react';
 
-type Props = {};
+interface Props {
+  collection: Collection;
+}
 
-const Collection = (props: Props) => {
+const Collection = ({ collection }: Props) => {
+  console.log(collection);
   return (
     <>
       <div className="lg:h-screen snap-y lg:snap-mandatory z-0 scrollbar scrollbar-thumb-[#FF5F6D] scrollbar-track-gray-50 scroll-smooth">
         <section className="snap-center mx-auto">
-          <Hero />
+          <Hero collection={collection} />
         </section>
         <section id="test2" className="snap-center">
           <div className="h-screen max-w-7xl mx-auto flex items-center justify-center">
@@ -38,3 +44,17 @@ const Collection = (props: Props) => {
 };
 
 export default Collection;
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const slug = context?.params?.slug;
+  const query = `*[_type == "collection" && slug.current == "${slug}"][0]`;
+  const collection = await sanityClient.fetch(query);
+
+  if (!collection) {
+    return { notFound: true };
+  }
+
+  return {
+    props: { collection }
+  };
+};

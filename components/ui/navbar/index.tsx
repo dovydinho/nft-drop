@@ -1,12 +1,18 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { ConnectWallet, useMetamask, useAddress } from '@thirdweb-dev/react';
+import {
+  ConnectWallet,
+  useMetamask,
+  useDisconnect,
+  useAddress
+} from '@thirdweb-dev/react';
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   const [connected, setConnected] = useState(false);
   const connectWithMetamask = useMetamask();
+  const disconnectWallet = useDisconnect();
   const address = useAddress();
 
   useEffect(() => {
@@ -23,20 +29,31 @@ const Navbar = (props: Props) => {
             <a className="font-bold text-3xl">NFT Drop</a>
           </Link>
         </div>
-        <div>
+        {/* <div>
           <ConnectWallet colorMode="light" accentColor="#F213A4" />
-        </div>
-        {/* <button
-          onClick={() => connectWithMetamask()}
-          className="bg-blue-600 hover:bg-blue-700 focus:bg-blue-700 text-gray-100 w-36 py-2 border shadow-md  rounded-xl border-indigo-400 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+        </div> */}
+        <button
+          onClick={() =>
+            connected ? disconnectWallet() : connectWithMetamask()
+          }
+          className={`${
+            !connected
+              ? 'bg-blue-600 hover:bg-blue-400 focus:bg-blue-700 border-indigo-400'
+              : 'bg-red-400 hover:bg-red-500 border-red-300'
+          } text-gray-100 w-36 py-2 border shadow-lg  rounded-xl focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out`}
         >
-          Connect
-        </button> */}
+          {connected ? 'Disconnect' : 'Connect'}
+        </button>
       </div>
       <hr className="border-gray-300" />
-      {!connected ? (
-        <p className="text-center animate-pulse py-2">You are not logged in.</p>
-      ) : null}
+      <p className="text-center animate-pulse py-2">
+        {connected
+          ? 'Connected with ' +
+            address?.slice(0, 6) +
+            '-' +
+            address?.slice(address?.length - 4, address?.length)
+          : 'You are not logged in.'}
+      </p>
     </nav>
   );
 };

@@ -1,7 +1,14 @@
+import { Collection } from '@base/typings';
 import { CollectionCard, Navbar } from '@components/ui';
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
+import { sanityClient, urlFor } from '../sanity';
 
-const Home: NextPage = () => {
+interface Props {
+  collections: Collection[];
+}
+
+const Home = ({ collections }: Props) => {
+  console.log(collections);
   const avatarImgUrl =
     'https://n6c2y4pgeqt4u3r7th7yyfhjlm4e4llquctqvm7lde6pduuuwjiq.arweave.net/b4WsceYkJ8puP5n_jBTpWzhOLXCgpwqz6xk88dKUslE';
   return (
@@ -11,6 +18,17 @@ const Home: NextPage = () => {
         <div className="h-full w-full flex items-center justify-center">
           <div className="w-full max-w-sm md:max-w-3xl xl:max-w-7xl h-[36rem] flex-shrink text-gray-600">
             <section className="w-full h-full pb-6 flex overflow-x-scroll overflow-y-hidden xl:space-x-16 snap-x snap-mandatory scroll-smooth scrollbar-thin z-40 scrollbar-track-gray-200 scrollbar-thumb-gray-300">
+              {collections.map((collection, index) => {
+                return (
+                  <CollectionCard
+                    key={index}
+                    title={collection.title}
+                    slug={collection.slug.current}
+                    description={collection.description}
+                    coverImageUrl={urlFor(collection.backgroundImage).url()}
+                  />
+                );
+              })}
               <CollectionCard
                 title="Annon Originals"
                 description="Lorem ipsum is placeholder text commonly used in the graphic,
@@ -57,3 +75,13 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const query = `*[_type == "collection"]`;
+  const collections = await sanityClient.fetch(query);
+  return {
+    props: {
+      collections
+    }
+  };
+};

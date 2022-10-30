@@ -2,13 +2,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-type Props = { title: string; description: string; coverImageUrl: string };
+type Props = {
+  title: string;
+  slug: string;
+  description: string;
+  coverImageUrl: string;
+};
 
-const CollectionCard = ({ title, description, coverImageUrl }: Props) => {
+const CollectionCard = ({ title, slug, description, coverImageUrl }: Props) => {
   return (
     <>
       <div className="snap-center md:snap-start w-96 flex flex-shrink-0 p-4">
-        <Link href="/collections/random">
+        <Link href={`/collections/${slug}`}>
           <article className="w-full overflow-hidden flex flex-col items-center justify-center rounded-xl bg-gray-50 border-b border-x shadow-lg border-gray-300 cursor-pointer hover:scale-105 transition-all">
             <div className="w-full h-2/3 relative">
               <Image

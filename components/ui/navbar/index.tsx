@@ -17,8 +17,6 @@ const Navbar = (props: Props) => {
 
   useEffect(() => {
     address ? setConnected(true) : setConnected(false);
-    console.log(address);
-    console.log(connected);
   }, [address, connected]);
 
   return (

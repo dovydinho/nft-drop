@@ -8,7 +8,6 @@ interface Props {
 }
 
 const Home = ({ collections }: Props) => {
-  console.log(collections);
   const avatarImgUrl =
     'https://n6c2y4pgeqt4u3r7th7yyfhjlm4e4llquctqvm7lde6pduuuwjiq.arweave.net/b4WsceYkJ8puP5n_jBTpWzhOLXCgpwqz6xk88dKUslE';
   return (

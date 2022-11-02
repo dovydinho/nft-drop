@@ -14,6 +14,11 @@ export default {
       type: 'string'
     },
     {
+      name: 'quote',
+      title: 'Quote',
+      type: 'string'
+    },
+    {
       name: 'address',
       title: 'Address',
       type: 'string'

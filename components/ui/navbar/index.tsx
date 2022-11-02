@@ -20,7 +20,7 @@ const Navbar = (props: Props) => {
   }, [address, connected]);
 
   return (
-    <nav className="w-full max-w-7xl right-0 py-4">
+    <nav className="w-full max-w-7xl right-0 py-4 px-8">
       <div className="flex items-center justify-between py-6">
         <div className="flex items-center flex-shrink-0">
           <Link href="/">

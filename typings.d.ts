@@ -28,6 +28,7 @@ export interface Collection extends SanityBody {
   _type: 'collection';
   title: string;
   description: string;
+  quote: string;
   address: string;
   slug: { current: string };
   creator: Creator;

@@ -18,11 +18,12 @@ interface Props {
 }
 
 const Hero = (props: Props) => {
+  console.log(props.collection.creator);
   const address = useAddress();
 
   return (
     <>
-      <div className="relative lg:h-screen flex flex-col lg:flex-row">
+      <div className="relative flex flex-col lg:flex-row">
         <motion.div
           initial={{ x: -500, opacity: 0.5 }}
           animate={{ x: 0, opacity: 1 }}
@@ -52,8 +53,7 @@ const Hero = (props: Props) => {
                         fill="currentColor"
                       />
                     </svg>
-                    <p>"{props.collection.quote}"</p>
-                    <p className="text-sm text-right">- Nobody</p>
+                    <p>{props.collection.quote}</p>
                   </blockquote>
                 </div>
                 <div className="w-full h-full bg-gray-300/90 blur-lg absolute z-0" />
@@ -71,7 +71,7 @@ const Hero = (props: Props) => {
           initial={{ x: 500, opacity: 0.5 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="lg:h-screen w-full lg:w-1/2 xl:w-3/5 flex flex-col items-center justify-between"
+          className="lg:h-screen overflow-y-auto w-full lg:w-1/2 xl:w-3/5 flex flex-col items-center justify-between"
         >
           <Navbar />
           <section className="px-2 sm:px-10">
@@ -86,7 +86,7 @@ const Hero = (props: Props) => {
                       className="rounded-xl object-contain"
                     />
                     <div className="w-60 sm:w-72 h-24 absolute -bottom-12 right-4 sm:-right-4 flex">
-                      <div className="relative w-full py-2 overflow-hidden bg-gradient-to-tr from-gray-50/50 to-gray-50/60 border border-gray-400 flex flex-col items-center justify-center shadow-lg shadow-gray-50/20 rounded-xl">
+                      <div className="relative w-full p-2 overflow-hidden bg-gradient-to-tr from-gray-50/50 to-gray-50/60 border border-gray-400 flex flex-col items-center justify-center shadow-lg shadow-gray-50/20 rounded-xl">
                         <blockquote className="italic z-10">
                           <svg
                             aria-hidden="true"
@@ -101,9 +101,8 @@ const Hero = (props: Props) => {
                             />
                           </svg>
                           <p className="text-sm sm:text-base">
-                            "This is the best NFT Collection."
+                            {props.collection.quote}
                           </p>
-                          <p className="text-sm text-right">- Nobody</p>
                         </blockquote>
                       </div>
                       <div className="w-full h-full bg-gray-300/50 blur-lg absolute z-0" />
@@ -158,7 +157,7 @@ const Hero = (props: Props) => {
                               props.claimedSupply ||
                             !address
                           }
-                          className="w-full h-full flex flex-col font-bold items-center justify-center hover:bg-blue-500 bg-blue-600 border border-gray-600 rounded-b-xl sm:rounded-bl-none sm:rounded-r-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="w-full h-full flex flex-col py-2 font-bold items-center justify-center hover:bg-blue-500 bg-blue-600 border border-gray-600 rounded-b-xl sm:rounded-bl-none sm:rounded-r-xl disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           {props.totalSupply?.toNumber() ===
                           props.claimedSupply ? (
@@ -199,6 +198,22 @@ const Hero = (props: Props) => {
                   )}
                 </div>
               </div>
+              <a
+                href={`https://goerli.etherscan.io/address/${props.collection.address}`}
+                className="flex items-center justify-center pt-4 gap-2"
+                target="_blank"
+              >
+                <img
+                  src="https://goerli.etherscan.io/assets/svg/logos/logo-etherscan.svg"
+                  className="h-6"
+                />
+                {props.collection.address?.slice(0, 6) +
+                  '-' +
+                  props.collection.address?.slice(
+                    props.collection.address?.length - 4,
+                    props.collection.address?.length
+                  )}
+              </a>
             </div>
           </section>
           <Footer />

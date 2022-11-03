@@ -21,12 +21,26 @@ const CollectionCard = ({ collection }: Props) => {
                 className="object-cover"
               />
             </div>
-            <div className="w-full h-1/3 px-4 pb-4 overflow-y-scroll scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-300">
-              <h1 className="font-medium tracking-widest text-lg sm:text-xl text-center py-1">
-                {collection.title}
-              </h1>
-              <p className="">{collection.description}</p>
-            </div>
+            <section className="w-full flex flex-col justify-between h-1/3">
+              <div className="">
+                <h1 className="font-medium tracking-widest text-lg sm:text-xl text-center py-1">
+                  {collection.title}
+                </h1>
+                <p className="h-24 px-4 overflow-y-scroll scrollbar-thin scrollbar-track-gray-200/80 scrollbar-thumb-gray-300">
+                  {collection.description}
+                  Dummy Text Dummy Text Dummy Text Dummy Text Dummy Text Dummy
+                  Text Dummy Text
+                </p>
+              </div>
+              <footer className="flex items-center justify-center w-full h-full bg-gray-200/80 gap-2">
+                {collection.address?.slice(0, 6) +
+                  '-' +
+                  collection.address?.slice(
+                    collection.address?.length - 4,
+                    collection.address?.length
+                  )}
+              </footer>
+            </section>
           </article>
         </Link>
       </div>

@@ -9,7 +9,7 @@ export default function Footer({}: Props) {
   return (
     <section className="py-8 text-gray-400 tracking-widest">
       <ul className="flex uppercase items-center justify-center gap-8 h-24">
-        <li className="hover:text-gray-700 hover:font-bold sm:w-40 text-center transition-all">
+        <li className="hover:text-gray-700 hover:font-bold lg:w-32 xl:w-40 text-center transition-all">
           {router.query.slug ? (
             <div className="group flex items-center justify-center gap-2">
               <img
@@ -23,17 +23,17 @@ export default function Footer({}: Props) {
               </Link>
             </div>
           ) : (
-            <Link href="https://www.dovydas.io/blog/my-web3-app-overview-crowdfund">
+            <Link href="https://www.dovydas.io/blog">
               <a target="_blank">Overview</a>
             </Link>
           )}
         </li>
-        <li className="hover:text-gray-700 hover:font-bold sm:w-40 text-center transition-all">
+        <li className="hover:text-gray-700 hover:font-bold lg:w-36 xl:w-40 text-center transition-all">
           <Link href="https://www.dovydas.io/showcase">
             <a target="_blank">All Projects</a>
           </Link>
         </li>
-        <li className="hover:text-gray-700 hover:font-bold sm:w-40 text-center transition-all">
+        <li className="hover:text-gray-700 hover:font-bold lg:w-32 xl:w-40 text-center transition-all">
           <Link href="https://www.dovydas.io/blog">
             <a target="_blank">Blog</a>
           </Link>

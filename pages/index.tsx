@@ -30,7 +30,7 @@ const Home = ({ collections }: Props) => {
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const query = `*[_type == "collection"] | order(publishedAt desc)`;
+  const query = `*[_type == "collection" && !(_id in path('drafts.**'))] | order(publishedAt desc)`;
   const collections = await sanityClient.fetch(query);
   return {
     props: {

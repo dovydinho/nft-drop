@@ -108,8 +108,8 @@ const Collection = ({ collection }: Props) => {
         </div>
       ) : null}
 
-      <div className="lg:h-screen snap-y lg:snap-mandatory z-0 scrollbar scrollbar-thumb-[#FF5F6D] scrollbar-track-gray-50 scroll-smooth">
-        <section className="snap-center mx-auto">
+      <div className="lg:h-screen lg:overflow-hidden z-0">
+        <section className="mx-auto">
           <Hero
             collection={collection}
             claimedSupply={claimedSupply}

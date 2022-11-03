@@ -52,7 +52,7 @@ const Collection = ({ collection }: Props) => {
     nftDrop
       .claimTo(address, quantity)
       .then(async (tx) => {
-        const claimedNFT = await tx[0].data();
+        const claimedNFT = await tx[0]?.data();
         setMintedNFT(claimedNFT);
       })
       .catch((err) => console.error(err))

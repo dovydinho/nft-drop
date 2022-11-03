@@ -204,6 +204,7 @@ const Hero = (props: Props) => {
                 href={`https://goerli.etherscan.io/address/${props.collection.address}`}
                 className="flex items-center justify-center pt-4 gap-2"
                 target="_blank"
+                rel="noreferrer"
               >
                 <img
                   src="https://goerli.etherscan.io/assets/svg/logos/logo-etherscan.svg"

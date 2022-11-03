@@ -17,7 +17,7 @@ type WindowDimentions = {
 
 const Collection = ({ collection }: Props) => {
   const [claimedSupply, setClaimedSupply] = useState<number>(0);
-  const [totalSupply, setTotalSupply] = useState<BigNumber>(0);
+  const [totalSupply, setTotalSupply] = useState<BigNumber>(BigNumber.from(0));
   const [price, setPrice] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
   const [minting, setMinting] = useState<boolean>(false);
@@ -52,11 +52,8 @@ const Collection = ({ collection }: Props) => {
     nftDrop
       .claimTo(address, quantity)
       .then(async (tx) => {
-        // const receipt = tx[0].receipt;
-        // const claimedTokenId = tx[0].id;
         const claimedNFT = await tx[0].data();
         setMintedNFT(claimedNFT);
-        console.log(claimedNFT);
       })
       .catch((err) => console.error(err))
       .finally(() => {
@@ -156,7 +153,7 @@ const useWindowDimensions = (): WindowDimentions => {
     handleResize();
     window.addEventListener('resize', handleResize);
     return (): void => window.removeEventListener('resize', handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
+  }, []);
 
   return windowDimensions;
 };

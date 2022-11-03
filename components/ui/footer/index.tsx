@@ -2,9 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useRouter } from 'next/router';
 
-type Props = {};
-
-export default function Footer({}: Props) {
+export default function Footer() {
   const router = useRouter();
   return (
     <section className="py-8 text-gray-400 tracking-widest">

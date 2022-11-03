@@ -1,7 +1,7 @@
 import { Collection } from '@base/typings';
 import { CollectionCard, Footer, Navbar } from '@components/ui';
-import type { GetServerSideProps, NextPage } from 'next';
-import { sanityClient, urlFor } from '../sanity';
+import type { GetServerSideProps } from 'next';
+import { sanityClient } from '../sanity';
 
 interface Props {
   collections: Collection[];

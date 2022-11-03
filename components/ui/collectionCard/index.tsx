@@ -28,8 +28,6 @@ const CollectionCard = ({ collection }: Props) => {
                 </h1>
                 <p className="h-24 px-4 overflow-y-scroll scrollbar-thin scrollbar-track-gray-200/80 scrollbar-thumb-gray-300">
                   {collection.description}
-                  Dummy Text Dummy Text Dummy Text Dummy Text Dummy Text Dummy
-                  Text Dummy Text
                 </p>
               </div>
               <footer className="flex items-center justify-center w-full h-full bg-gray-200/80 gap-2">

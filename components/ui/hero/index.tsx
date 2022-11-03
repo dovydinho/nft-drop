@@ -18,7 +18,6 @@ interface Props {
 }
 
 const Hero = (props: Props) => {
-  console.log(props.collection.creator);
   const address = useAddress();
 
   return (

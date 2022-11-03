@@ -1,15 +1,8 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import {
-  ConnectWallet,
-  useMetamask,
-  useDisconnect,
-  useAddress
-} from '@thirdweb-dev/react';
+import { useMetamask, useDisconnect, useAddress } from '@thirdweb-dev/react';
 
-type Props = {};
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const [connected, setConnected] = useState(false);
   const connectWithMetamask = useMetamask();
   const disconnectWallet = useDisconnect();
@@ -27,9 +20,6 @@ const Navbar = (props: Props) => {
             <a className="font-bold text-3xl">NFT Drop</a>
           </Link>
         </div>
-        {/* <div>
-          <ConnectWallet colorMode="light" accentColor="#F213A4" />
-        </div> */}
         <button
           onClick={() =>
             connected ? disconnectWallet() : connectWithMetamask()

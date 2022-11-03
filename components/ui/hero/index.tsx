@@ -32,6 +32,7 @@ const Hero = (props: Props) => {
           <div className="flex items-center justify-end h-full relative p-24">
             <div className="flex bg-gray-50 p-2 rounded-2xl bg-gradient-to-br from-violet-700/50 to-indigo-900/90 relative">
               <Image
+                alt="Main Image"
                 src={urlFor(props.collection.mainImage).url()}
                 width={400}
                 height={400}
@@ -59,6 +60,7 @@ const Hero = (props: Props) => {
               </div>
             </div>
             <Image
+              alt="Background Image"
               src={urlFor(props.collection.backgroundImage).url()}
               layout="fill"
               className="object-cover -z-10"
@@ -79,6 +81,7 @@ const Hero = (props: Props) => {
                 <div className="flex items-center justify-center h-full relative pb-20">
                   <div className="flex p-2 rounded-2xl bg-gradient-to-br from-violet-700/50 to-indigo-900/90 relative">
                     <Image
+                      alt="Main Image"
                       src={urlFor(props.collection.mainImage).url()}
                       width={400}
                       height={400}

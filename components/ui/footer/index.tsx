@@ -21,7 +21,7 @@ export default function Footer() {
               </Link>
             </div>
           ) : (
-            <Link href="https://www.dovydas.io/blog">
+            <Link href="https://www.dovydas.io/blog/my-web3-app-overview-nft-drop">
               <a target="_blank">Overview</a>
             </Link>
           )}

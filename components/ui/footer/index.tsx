@@ -14,27 +14,26 @@ export default function Footer() {
                 src="https://testnets.opensea.io/static/images/logos/opensea.svg"
                 className="w-6 grayscale group-hover:grayscale-0"
               />
-              <Link
+              <LinkItem
                 href={`https://testnets.opensea.io/collection/${router.query.slug}`}
-              >
-                <a target="_blank">Collection</a>
-              </Link>
+                title="Collection"
+              />
             </div>
           ) : (
-            <Link href="https://www.dovydas.io/blog/my-web3-app-overview-nft-drop">
-              <a target="_blank">Overview</a>
-            </Link>
+            <LinkItem
+              href="https://www.dovydas.io/blog/my-web3-app-overview-nft-drop"
+              title="Overview"
+            />
           )}
         </li>
         <li className="hover:text-gray-700 hover:font-bold lg:w-36 xl:w-40 text-center transition-all">
-          <Link href="https://www.dovydas.io/showcase">
-            <a target="_blank">All Projects</a>
-          </Link>
+          <LinkItem
+            href="https://www.dovydas.io/showcase"
+            title="All Projects"
+          />
         </li>
         <li className="hover:text-gray-700 hover:font-bold lg:w-32 xl:w-40 text-center transition-all">
-          <Link href="https://www.dovydas.io/blog">
-            <a target="_blank">Blog</a>
-          </Link>
+          <LinkItem href="https://www.dovydas.io/blog" title="Blog" />
         </li>
       </ul>
       <div className="flex justify-center gap-8">
@@ -64,3 +63,11 @@ export default function Footer() {
     </section>
   );
 }
+
+const LinkItem = ({ href, title }: { href: string; title: string }) => {
+  return (
+    <Link href={href}>
+      <a target="_blank">{title}</a>
+    </Link>
+  );
+};

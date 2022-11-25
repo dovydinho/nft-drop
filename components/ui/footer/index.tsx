@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import React from 'react';
 import { useRouter } from 'next/router';
 
 export default function Footer() {
   const router = useRouter();
+
   return (
     <section className="py-8 text-gray-400 tracking-widest">
       <ul className="flex uppercase items-center justify-center gap-8 h-24">

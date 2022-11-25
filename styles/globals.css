@@ -5,7 +5,6 @@
 @tailwind utilities;
 
 html {
-  /* @apply bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 text-gray-800 min-h-screen; */
   @apply bg-gradient-to-tr from-[#fdfbfb] to-[#ebedee] text-gray-800 min-h-screen;
   font-family: 'Montserrat', sans-serif;
 }

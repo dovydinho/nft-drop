@@ -4,9 +4,9 @@ import { useMetamask, useDisconnect, useAddress } from '@thirdweb-dev/react';
 
 const Navbar = () => {
   const [connected, setConnected] = useState(false);
+  const address = useAddress();
   const connectWithMetamask = useMetamask();
   const disconnectWallet = useDisconnect();
-  const address = useAddress();
 
   useEffect(() => {
     address ? setConnected(true) : setConnected(false);

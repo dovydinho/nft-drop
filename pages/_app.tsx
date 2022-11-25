@@ -1,13 +1,14 @@
 import type { AppProps } from 'next/app';
-import '../styles/globals.css';
-import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 import Head from 'next/head';
+import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
+
+import '../styles/globals.css';
 
 const activeChainId = ChainId.Goerli;
 
 function MyApp({ Component, pageProps }: AppProps) {
   const meta = {
-    title: 'NFT Drop - Web3 Application Demo',
+    title: 'NFT Drop Collections - Ethereum Application on Goerli Test Network',
     description: `Open-source NFT Drop web3 application built with Next.js, Tailwind CSS and Thirdweb powered by Ethereum Test Network. Visit dovydas.io for more info.`,
     type: 'website'
   };

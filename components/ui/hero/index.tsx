@@ -1,11 +1,11 @@
-import { urlFor } from '@base/sanity';
-import { Collection } from '@base/typings';
+import Image from 'next/image';
 import { useAddress } from '@thirdweb-dev/react';
 import { BigNumber } from 'ethers';
-import Image from 'next/image';
-import Navbar from '../navbar';
 import { motion } from 'framer-motion';
-import { Footer } from '@components/ui';
+
+import { Footer, Navbar } from '@components/ui';
+import { urlFor } from '@base/sanity';
+import { Collection } from '@base/typings';
 
 interface Props {
   collection: Collection;

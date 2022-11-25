@@ -1,12 +1,14 @@
-import { sanityClient } from '@base/sanity';
-import { Collection } from '@base/typings';
-import { Hero } from '@components/ui';
-import { useAddress, useNFTDrop } from '@thirdweb-dev/react';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetServerSideProps } from 'next';
 import React, { useEffect, useState } from 'react';
+import { useAddress, useNFTDrop } from '@thirdweb-dev/react';
 import { BigNumber } from 'ethers';
 import { motion } from 'framer-motion';
 import Confetti from 'react-confetti';
+
+import { sanityClient } from '@base/sanity';
+import { Collection } from '@base/typings';
+import { Hero } from '@components/ui';
+
 interface Props {
   collection: Collection;
 }

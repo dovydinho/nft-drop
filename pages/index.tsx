@@ -1,6 +1,7 @@
+import type { GetServerSideProps } from 'next';
+
 import { Collection } from '@base/typings';
 import { CollectionCard, Footer, Navbar } from '@components/ui';
-import type { GetServerSideProps } from 'next';
 import { sanityClient } from '../sanity';
 
 interface Props {

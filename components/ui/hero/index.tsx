@@ -206,9 +206,10 @@ const Hero = (props: Props) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img
+                <Image
                   src="https://goerli.etherscan.io/assets/svg/logos/logo-etherscan.svg"
-                  className="h-6"
+                  width={107}
+                  height={24}
                 />
                 {props.collection.address?.slice(0, 6) +
                   '-' +
